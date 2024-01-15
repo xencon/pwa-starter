@@ -6,17 +6,29 @@ The PWABuilder pwa-starter is our opinionated, best practices, production tested
 
 ## Jump Right In
 
+Install npm for your target system:
+
+https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+
 Install the PWABuilder CLI:
 
 `npm i -g @pwabuilder/cli`
 
-And create a new app with this command:
+Clone this repository:
 
-`pwa create`
+`git clone https://github.com/xencon/pwa-start.git`
+
+Change directory to the pwa directory:
+
+`cd pwa-starter`
+
+Build your app locally with:
+
+`make build`
 
 And start your app locally with:
 
-`pwa start`
+`make start`
 
 And that's it! Good luck on your Progressive Web App adventure!
 
