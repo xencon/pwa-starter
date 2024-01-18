@@ -50,7 +50,3 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v1
-
-  push:
-  branches:
-    - main
