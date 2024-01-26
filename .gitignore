@@ -5,6 +5,4 @@ dev-dist
 build
 types
 .idea
-
-
 .nx/cache
