@@ -5,8 +5,7 @@
 #######################################################
 prereqs:
 # NVM & Node
-	@./scripts/nvm.sh
-	@. ${NVM_DIR}/nvm.sh && nvm use 18
+	@nvm install 18 && nvm use 18
 
 # Homebrew
 	@echo
