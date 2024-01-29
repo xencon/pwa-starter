@@ -18,13 +18,13 @@ Clone this repository:
 
 `git clone https://github.com/xencon/pwa-start.git`
 
-Change directory to the pwa directory:
-
-`cd pwa-starter`
-
 Build your app locally with:
 
 `make build`
+
+Change directory to the pwa directory:
+
+`cd pwa-starter`
 
 And start your app locally with:
 
