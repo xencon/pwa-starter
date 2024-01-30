@@ -11,12 +11,7 @@
     "build": "nx exec -- yarn _build ",
     "start": "npm run dev",
     "start-remote": "vite --host",
-    "_build": "tsc && vite build",
-    "serenity": "failsafe serenity:update serenity:clean wdio serenity:report",
-    "serenity:update": "serenity-bdd update",
-    "serenity:clean": "rimraf target",
-    "wdio": "wdio run ./wdio.conf.ts",
-    "serenity:report": "serenity-bdd run"
+    "_build": "tsc && vite build"
   },
   "author": "",
   "license": "ISC",
@@ -26,7 +21,6 @@
     "@types/react": "^17.0.75",
     "lit": "^2.7.2",
     "urlpattern-polyfill": "^7.0.0",
-    "webdriverio": "^7.34.0",
     "workbox-build": "^6.5.2",
     "workbox-core": "^6.5.2",
     "workbox-precaching": "^6.5.2",
@@ -45,9 +39,7 @@
     "rimraf": "^5.0.5",
     "typescript": "^5.0.4",
     "vite": "^4.5.2",
-    "vite-plugin-pwa": "^0.14.7",
-    "wdio-vite-service": "^1.0.6",
-    "wdio-wait-for": "^3.0.10"
+    "vite-plugin-pwa": "^0.14.7"
   },
   "prettier": {
     "tabWidth": 2,
