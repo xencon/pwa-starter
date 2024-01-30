@@ -32,23 +32,11 @@ prereqs:
 	@echo
 	@brew install mockery
 
-# Yarn
-	@echo
-	@echo "****** Installing Yarn ******"
-	@echo
-	@brew install yarn
-
 # Jest
 	@echo
 	@echo "****** Installing Jest ******"
 	@echo
-	@yarn add --dev jest
-
-# Cypress
-	@echo
-	@echo "****** Installing Cypress ******"
-	@echo
-	@yarn add cypress @cypress/react @cypress/webpack-dev-server --dev
+	@npm install --save-dev jest
 
 #######################################################
 #######################################################
@@ -57,8 +45,9 @@ prereqs:
 #######################################################
 clean:
 	@echo "****** Cleaning local build, cache and dependency files ******"
-	@yarn nx run-many --all --target=clean
-	@yarn nx clear-cache
+	@npx rimraf node_modules
+	@npm cache clean
+	@npm cache verify
 	@rm -rf node_modules
 	@rm -rf coverage reports
 	@find . -type d -name node_modules -exec rm -rf '{}' +
@@ -69,37 +58,11 @@ cleanLock:
 	@find . -type f \( -name *.lock -o -name *-lock.json \) -delete
 
 #######################################################
-# Lint Scripts
-#######################################################
-typecheck:
-	@echo "****** Typechecking All Packages ******"
-	@yarn nx run-many --all --target=typecheck
-	
-prettier:
-	@yarn prettier . --write
-
-#######################################################
-# Test Scripts
-#######################################################
-
-testUnit:
-	@echo "****** Testing All Packages ******"
-	@yarn nx run-many --all --target=testUnit
-
-testApi:
-	@echo "****** Running API Tests ******"
-	@cd packages/test-api && yarn testApi
-
-teste2e:
-	@echo "****** Running End-to-End Tests ******"
-	@cd packages/test-ui && yarn test-e2e-pr-app
-
-#######################################################
 # Build & Run Scripts
 #######################################################
 build:
 	@echo "****** Building Portable Web Application ******"
-	@yarn
+	@pwa build
 
 start:
 	@echo "****** Starting Portable Web Application ******"
@@ -118,7 +81,6 @@ generateWorkflows:
 	@echo
 	@echo "****** Generating Github Actions Workflows ******"
 	@rm -rf .github/workflows/*
-	@cd packages/noah-cicd && yarn gen
 	@make lintWorkflows
 
 prepr: install lint typecheck testUnit prettier
