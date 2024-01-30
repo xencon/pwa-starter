@@ -6,7 +6,7 @@
 prereqs:
 # NVM & Node
 	@./scripts/nvm.sh
-	@. ${NVM_DIR}/nvm.sh && nvm use v19.9.0
+	@. ${NVM_DIR}/nvm.sh && nvm use v21.6.1
 
 # Homebrew
 	@echo
@@ -31,15 +31,11 @@ prereqs:
 	@echo "****** Installing mockery ******"
 	@echo
 	@brew install mockery
-
-# Rimraf
 	@echo
 	@echo "****** Installing rimraf ******"
 	@echo
 	@npm install rimraf
 
-#######################################################
-#######################################################
 #######################################################
 # Clean Up Scripts
 #######################################################
@@ -67,20 +63,3 @@ build:
 start:
 	@echo "****** Starting Portable Web Application ******"
 	@pwa start
-
-#######################################################
-# Github Action Scripts
-#######################################################
-
-lintWorkflows:
-	@echo
-	@echo "****** Linting Github Actions Workflows ******"
-	@actionlint
-
-generateWorkflows:
-	@echo
-	@echo "****** Generating Github Actions Workflows ******"
-	@rm -rf .github/workflows/*
-	@make lintWorkflows
-
-prepr: install lint typecheck testUnit prettier
