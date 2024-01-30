@@ -32,6 +32,7 @@
   "devDependencies": {
     "@cucumber/cucumber": "^10.3.1",
     "@nx/cypress": "^17.2.8",
+    "@playwright/test": "^1.41.1",
     "@serenity-js/assertions": "^3.15.1",
     "@serenity-js/console-reporter": "^3.15.1",
     "@serenity-js/core": "^3.15.1",
@@ -49,7 +50,9 @@
     "rimraf": "^5.0.5",
     "typescript": "^5.0.4",
     "vite": "^4.5.2",
-    "vite-plugin-pwa": "^0.14.7"
+    "vite-plugin-pwa": "^0.14.7",
+    "wdio-vite-service": "^1.0.6",
+    "wdio-wait-for": "^3.0.10"
   },
   "prettier": {
     "tabWidth": 2,
