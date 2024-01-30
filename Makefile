@@ -6,7 +6,7 @@
 prereqs:
 # NVM & Node
 	@./scripts/nvm.sh
-	@. ${NVM_DIR}/nvm.sh && nvm use 21.6.1
+	@. ${NVM_DIR}/nvm.sh && nvm use 20
 
 # Homebrew
 	@echo
