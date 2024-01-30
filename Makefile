@@ -32,11 +32,11 @@ prereqs:
 	@echo
 	@brew install mockery
 
-# Jest
+# Rimraf
 	@echo
-	@echo "****** Installing Jest ******"
+	@echo "****** Installing rimraf ******"
 	@echo
-	@npm install --save-dev jest
+	@npm install rimraf
 
 #######################################################
 #######################################################
@@ -45,13 +45,13 @@ prereqs:
 #######################################################
 clean:
 	@echo "****** Cleaning local build, cache and dependency files ******"
+	@find . -type d -name node_modules -exec rm -rf '{}' +
+	@find . -type f \( -name .eslintcache \) -delete
 	@npx rimraf node_modules
-	@npm cache clean
+	@npm cache clean --force
 	@npm cache verify
 	@rm -rf node_modules
 	@rm -rf coverage reports
-	@find . -type d -name node_modules -exec rm -rf '{}' +
-	@find . -type f \( -name .eslintcache \) -delete
 
 cleanLock:
 	@echo "****** Cleaning lock files ******"
@@ -62,7 +62,7 @@ cleanLock:
 #######################################################
 build:
 	@echo "****** Building Portable Web Application ******"
-	@pwa build
+	@npm install
 
 start:
 	@echo "****** Starting Portable Web Application ******"
