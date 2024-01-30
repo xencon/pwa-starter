@@ -28,7 +28,7 @@
     "wrap-ansi": "^9.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20.11.10",
+    "@types/node": "^20.11.12",
     "nx": "17.3.0",
     "rimraf": "^5.0.5",
     "typescript": "^5.3.3",
