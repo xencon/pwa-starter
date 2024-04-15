@@ -31,7 +31,7 @@
     "@types/node": "^20.11.12",
     "nx": "17.3.0",
     "rimraf": "^5.0.5",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.5",
     "vite": "^5.0.13",
     "vite-plugin-pwa": "^0.17.5"
   },
