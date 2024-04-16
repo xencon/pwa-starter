@@ -20,7 +20,7 @@ prereqs:
 	@echo "****** Installing Homebrew ******"
 	@echo "****** https://docs.brew.sh/Installation ******"
 	@echo
-	@/usr/bin/ruby -e "$(curl -fsSL $(HOMEBREW_INSTALL_SCRIPT))"
+	@/usr/bin/ruby -e "$(curl -fsSL $(HOMEBREW_INSTALL_URL))"
 	@brew update
 	@brew upgrade
 	@brew cleanup
@@ -70,3 +70,4 @@ build:
 start:
 	@echo "****** Starting Portable Web Application ******"
 	@pwa start
+	
