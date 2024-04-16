@@ -1,34 +1,11 @@
 #!make
 
-#######################################################
-# Pre-Requisites Scripts (normally only run once per machine)
-#######################################################
-prereqs:
-# NVM & Node
-	@if [ -z "$$(which nvm)" ]; then ./scripts/nvm.sh; fi
-	@. ${NVM_DIR}/nvm.sh && nvm use v21.6.1 || echo "Failed to switch to Node v21.6.1"
-
-# Homebrew
-	@if [ -z "$$(which brew)" ]; then \
-		echo "****** Installing Homebrew ******"; \
-		echo "****** https://docs.brew.sh/Installation ******"; \
-		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; \
-	fi
-	@brew update || echo "Failed to update Homebrew"
-	@brew upgrade || echo "Failed to upgrade Homebrew"
-	@brew cleanup || echo "Failed to cleanup Homebrew"
-
-# Tools
-	@echo "****** Installing Tools ******"
-	@brew install autoconf automake libtool || echo "Failed to install tools"
-
-# ActionLint
-	@echo "****** Installing ActionLint ******"
-	@brew install actionlint || echo "Failed to install ActionLint"
-
-# Mockery
-	@echo "****** Installing mockery ******"
-	@brew install mockery || echo "Failed to install Mockery"#!make
+NODE_VERSION = v21.6.1
+HOMEBREW_INSTALL_SCRIPT = https://raw.githubusercontent.com/Homebrew/install/master/install
+TOOLS = autoconf automake libtool
+ACTIONLINT = actionlint
+MOCKERY = mockery
+RIMRAF = rimraf
 
 #######################################################
 # Pre-Requisites Scripts (normally only run once per machine)
@@ -36,14 +13,14 @@ prereqs:
 prereqs:
 # NVM & Node
 	@./scripts/nvm.sh
-	@. ${NVM_DIR}/nvm.sh && nvm use v21.6.1
+	@. ${NVM_DIR}/nvm.sh && nvm use $(NODE_VERSION)
 
 # Homebrew
 	@echo
 	@echo "****** Installing Homebrew ******"
 	@echo "****** https://docs.brew.sh/Installation ******"
 	@echo
-	@/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	@/usr/bin/ruby -e "$(curl -fsSL $(HOMEBREW_INSTALL_URL))"
 	@brew update
 	@brew upgrade
 	@brew cleanup
@@ -52,19 +29,19 @@ prereqs:
 	@echo
 	@echo "****** Installing Tools ******"
 	@echo
-	@brew install autoconf automake libtool
+	@brew install $(TOOLS)
 	@echo
 	@echo "****** Installing ActionLint ******"
 	@echo
-	@brew install actionlint
+	@brew install $(ACTIONLINT)
 	@echo
 	@echo "****** Installing mockery ******"
 	@echo
-	@brew install mockery
+	@brew install $(MOCKERY)
 	@echo
 	@echo "****** Installing rimraf ******"
 	@echo
-	@npm install rimraf
+	@npm install $(RIMRAF)
 
 #######################################################
 # Clean Up Scripts
@@ -93,3 +70,4 @@ build:
 start:
 	@echo "****** Starting Portable Web Application ******"
 	@pwa start
+	
