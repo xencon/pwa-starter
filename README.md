@@ -35,3 +35,5 @@ And that's it! Good luck on your Progressive Web App adventure!
 ## More Info
 
 Lets integrate AL 😊!!!
+
+Build Trigger!!!
