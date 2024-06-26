@@ -28,8 +28,8 @@
     "wrap-ansi": "^9.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20.14.2",
-    "nx": "19.3.1",
+    "@types/node": "^20.14.8",
+    "nx": "19.2.3",
     "rimraf": "^5.0.7",
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
